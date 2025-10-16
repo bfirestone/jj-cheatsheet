@@ -48,9 +48,10 @@ jj git push
 
 ## 🚀 Quick Workflow Guide
 
-**Managing multiple Git repo clones?** (e.g., `backstack-api_01`, `backstack-api_02`, ... `backstack-api_06`)
+**Managing multiple Git repo clones?** (e.g., `my-api_01`, `my-api_02`, ... `my-api_06`)
 
 See **[Workflow Cheat Sheet](Cheat-Sheet-Flow.md)** to learn how Jujutsu replaces 6 repository clones with a single repo and makes feature juggling trivial. No more:
+
 - Searching for a "free" clone
 - Stashing or WIP commits to switch features
 - Forgetting which clone has which feature
@@ -63,26 +64,31 @@ See **[Workflow Cheat Sheet](Cheat-Sheet-Flow.md)** to learn how Jujutsu replace
 This repository contains comprehensive documentation organized by topic:
 
 ### Getting Started
+
 - [Installation](Installation.md) - How to install jj on various platforms
 - [Getting Started](Getting-Started.md) - Your first steps with jj
 - [Core Concepts](Core-Concepts.md) - Understanding jj's mental model
 
 ### Command Reference
+
 - [Commands Reference](Commands-Reference.md) - Complete command reference by category
 - [Git Comparison](Git-Comparison.md) - Git vs jj command equivalents
 - [Git Interoperability](Git-Interop.md) - Using jj with Git repositories
 
 ### Workflows & Patterns
+
 - [Common Workflows](Workflows.md) - Daily development patterns
 - [Conflict Resolution](Conflict-Resolution.md) - Handling merge conflicts
 - [Advanced Features](Advanced-Features.md) - Power user features
 
 ### Configuration & Customization
+
 - [Configuration](Configuration.md) - Config files, aliases, templates, and revsets
 - [Builtin Editor](Builtin-Editor.md) - Using the interactive diff/merge editor
 - [Best Practices](Best-Practices.md) - Modern best practices for 2025
 
 ### Help & Resources
+
 - [Troubleshooting](Troubleshooting.md) - Common issues and solutions
 - [Resources](Resources.md) - External tutorials and community links
 
@@ -90,14 +96,14 @@ This repository contains comprehensive documentation organized by topic:
 
 ### From Git's Perspective
 
-| Git Pain Point | Jujutsu Solution |
-|----------------|------------------|
-| Complex staging area | No staging; working copy is always a commit |
-| Confusing rebase conflicts | Conflicts don't block operations |
-| Fear of rewriting history | Automatic rebasing + powerful undo |
-| Detached HEAD state | Always on a change, never "detached" |
-| Lost commits | Operation log tracks everything |
-| Merge conflict hell | First-class conflict representation |
+| Git Pain Point             | Jujutsu Solution                            |
+| -------------------------- | ------------------------------------------- |
+| Complex staging area       | No staging; working copy is always a commit |
+| Confusing rebase conflicts | Conflicts don't block operations            |
+| Fear of rewriting history  | Automatic rebasing + powerful undo          |
+| Detached HEAD state        | Always on a change, never "detached"        |
+| Lost commits               | Operation log tracks everything             |
+| Merge conflict hell        | First-class conflict representation         |
 
 ### Jujutsu's Philosophy
 
