@@ -46,6 +46,18 @@ jj squash  # Move changes into the description you created
 jj git push
 ```
 
+## 🚀 Quick Workflow Guide
+
+**Managing multiple Git repo clones?** (e.g., `backstack-api_01`, `backstack-api_02`, ... `backstack-api_06`)
+
+See **[Workflow Cheat Sheet](Cheat-Sheet-Flow.md)** to learn how Jujutsu replaces 6 repository clones with a single repo and makes feature juggling trivial. No more:
+- Searching for a "free" clone
+- Stashing or WIP commits to switch features
+- Forgetting which clone has which feature
+- Wasting disk space on duplicate repos
+
+**One repo. Infinite parallel features. Instant context switching.**
+
 ## Documentation Structure
 
 This repository contains comprehensive documentation organized by topic:
