@@ -8,18 +8,18 @@ How to replace your multi-clone Git workflow with a streamlined Jujutsu workflow
 
 ```
 ~/projects/
-├── backstack-api_01/  ← Working on feature-auth
-├── backstack-api_02/  ← Working on feature-payments
-├── backstack-api_03/  ← Free (looking for this one!)
-├── backstack-api_04/  ← Working on bugfix-login
-├── backstack-api_05/  ← Stale branch, needs cleanup
-└── backstack-api_06/  ← Working on refactor-db
+├── my-api_01/  ← Working on feature-auth
+├── my-api_02/  ← Working on feature-payments
+├── my-api_03/  ← Free (looking for this one!)
+├── my-api_04/  ← Working on bugfix-login
+├── my-api_05/  ← Stale branch, needs cleanup
+└── my-api_06/  ← Working on refactor-db
 ```
 
 ### Current Workflow Steps
 
 1. **Find Free Clone**: Search through 6 directories to find one without active work
-2. **Update Main**: `cd backstack-api_03 && git checkout main && git pull --rebase`
+2. **Update Main**: `cd my-api_03 && git checkout main && git pull --rebase`
 3. **Create Branch**: `git checkout -b feature-new-thing`
 4. **Start Development**: Work on feature
 5. **Interruption!** High priority request comes in → Go back to step 1
@@ -42,7 +42,7 @@ How to replace your multi-clone Git workflow with a streamlined Jujutsu workflow
 
 ```
 ~/projects/
-└── backstack-api/  ← Just one repo!
+└── my-api/  ← Just one repo!
     ├── .git/
     ├── .jj/
     └── All features managed as parallel changes
@@ -75,7 +75,7 @@ How to replace your multi-clone Git workflow with a streamlined Jujutsu workflow
 # Git (old way)
 cd ~/projects/
 # Search for free clone...
-cd backstack-api_03
+cd my-api_03
 git checkout main
 git pull --rebase
 git checkout -b feature-new-thing
@@ -92,7 +92,7 @@ jj new main@origin -m "Feature: new thing"
 git add .
 git commit -m "WIP: partial work"  # Or git stash
 # Search for another free clone...
-cd ~/projects/backstack-api_05
+cd ~/projects/my-api_05
 git checkout main
 git pull --rebase
 git checkout -b hotfix-urgent
@@ -107,7 +107,7 @@ jj new main@origin -m "Hotfix: urgent issue"
 ```bash
 # Git (old way)
 # Which clone was that in again?
-cd ~/projects/backstack-api_03
+cd ~/projects/my-api_03
 git checkout feature-new-thing
 # If you did WIP commit:
 git reset HEAD~1  # Undo WIP commit
@@ -124,9 +124,9 @@ jj edit <feature-new-thing-id>
 
 ```bash
 # Git (old way)
-cd ~/projects/backstack-api_01 && git branch
-cd ~/projects/backstack-api_02 && git branch
-cd ~/projects/backstack-api_03 && git branch
+cd ~/projects/my-api_01 && git branch
+cd ~/projects/my-api_02 && git branch
+cd ~/projects/my-api_03 && git branch
 # ... repeat for all 6 clones
 
 # Jujutsu (new way)
@@ -141,8 +141,8 @@ jj log
 ```bash
 # One-time setup
 cd ~/projects/
-jj git clone --colocate https://github.com/yourorg/backstack-api.git
-cd backstack-api
+jj git clone --colocate https://github.com/yourorg/my-api.git
+cd my-api
 
 # Configure your identity
 jj config set --user user.name "Your Name"
@@ -429,7 +429,7 @@ jj abandon <change-id>
 # Keep your 6 clones for now
 # Add one jj clone
 cd ~/projects/
-jj git clone --colocate https://github.com/yourorg/backstack-api.git backstack-api-jj
+jj git clone --colocate https://github.com/yourorg/my-api.git my-api-jj
 
 # Use jj for NEW features only
 # Keep using Git clones for existing work
@@ -439,21 +439,21 @@ jj git clone --colocate https://github.com/yourorg/backstack-api.git backstack-a
 
 ```bash
 # Use jj as primary
-cd ~/projects/backstack-api-jj
+cd ~/projects/my-api-jj
 # All new work here
 
-# Keep backstack-api_01 as backup
-# Delete others: backstack-api_02 through _06
+# Keep my-api_01 as backup
+# Delete others: my-api_02 through _06
 ```
 
 ### Phase 3: Full jj (Single Repo)
 
 ```bash
 # Delete all old clones
-rm -rf ~/projects/backstack-api_0*
+rm -rf ~/projects/my-api_0*
 
 # Rename jj repo
-mv ~/projects/backstack-api-jj ~/projects/backstack-api
+mv ~/projects/my-api-jj ~/projects/my-api
 
 # All work in one place!
 ```
@@ -559,12 +559,12 @@ jj op restore <operation-id>
 
 ```
 ~/projects/
-├── backstack-api_01/  ← 500 MB
-├── backstack-api_02/  ← 500 MB
-├── backstack-api_03/  ← 500 MB
-├── backstack-api_04/  ← 500 MB
-├── backstack-api_05/  ← 500 MB
-└── backstack-api_06/  ← 500 MB
+├── my-api_01/  ← 500 MB
+├── my-api_02/  ← 500 MB
+├── my-api_03/  ← 500 MB
+├── my-api_04/  ← 500 MB
+├── my-api_05/  ← 500 MB
+└── my-api_06/  ← 500 MB
 Total: 3 GB
 ```
 
@@ -572,7 +572,7 @@ Total: 3 GB
 
 ```
 ~/projects/
-└── backstack-api/     ← 500 MB
+└── my-api/     ← 500 MB
 Total: 500 MB
 ```
 
